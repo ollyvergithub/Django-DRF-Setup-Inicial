@@ -1,50 +1,54 @@
-# Django-DRF-Setup-Inicial
+# Setup inicial Python, Django, Django Rest Framework, Postgres e Pytest
 
-Behold My Awesome Project!
+## 🥞 Stack
+- [Python v3.12](https://www.python.org/doc/)
+- [Django v5.1.8](https://www.djangoproject.com/start/)
+- [Django Rest Framework v3.16](https://www.django-rest-framework.org/)
+- [Postgres v16.4](https://www.postgresql.org/docs/)
+- [Pytest v8.3.5](https://docs.pytest.org/en/stable/)
 
-[![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+## 🛠️ Configurando o projeto
 
-License: MIT
+Primeiro, clone o projeto:
 
-## Settings
+### 🔄 via HTTPS
+    $ git clone https://github.com/ollyvergithub/Django-DRF-Setup-Inicial.git
 
-Moved to [settings](https://cookiecutter-django.readthedocs.io/en/latest/1-getting-started/settings.html).
+### 🔐 via SSH
+    $ git@github.com:ollyvergithub/Django-DRF-Setup-Inicial.git
 
-## Basic Commands
+### 🐍 Criando e ativando uma virtual env
+    $ python -m venv venv
+    $ source venv/bin/activate  # Linux/macOS
+    $ # ou venv\Scripts\activate no Windows
 
-### Setting Up Your Users
+### 📦 Instalando as dependências do projeto
+    $ pip install -r requirements/local.txt 
 
-- To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+### 🗃️ Criando um banco do dados PostgreSQL usando createdb ou utilizando seu client preferido (pgAdmin, DBeaver...)
+    $ createdb --username=postgres <project_slug>
 
-- To create a **superuser account**, use this command:
+> **_IMPORTANTE:_** Crie na raiz do projeto o arquivo _.env_ com base no .env.sample.
+> Depois, em um terminal digite export DJANGO_READ_DOT_ENV_FILE=True e todas as variáveis serão lidas.
 
-      $ python manage.py createsuperuser
+### ⚙️ Rodando as migrações
+    $ python manage.py migrate
 
-For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
+### 🚀 Executando o projeto
+    $ python manage.py runserver
 
-### Type checks
+Feito tudo isso, o projeto estará executando no endereço [localhost:8000](http://localhost:8000).
 
-Running type checks with mypy:
+### 👑 Opcional: Criando um super usuário
+    $ python manage.py createsuperuser
 
-    $ mypy apps
+### 🧪 Executando os testes com Pytest
+    $ pytest
 
-### Test coverage
-
-To run the tests, check your test coverage, and generate an HTML coverage report:
-
+### 🧪 Executando a cobertura dos testes
     $ coverage run -m pytest
     $ coverage html
     $ open htmlcov/index.html
 
-#### Running tests with pytest
-
-    $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally.html#using-webpack-or-gulp).
-
-## Deployment
-
-The following details how to deploy this application.
+### 📄 Licença
+Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE](./LICENSE) para detalhes.
